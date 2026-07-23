@@ -1,15 +1,27 @@
-<script src="IDkoop.js"></script>
-<script src="IDneutral.js"></script>
-<script src="IDpook.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>HOLD · ID · Stop</title>
 
-<script>
-function showID(mode) {
-    const map = {
-        koop: ID_KOOP,
-        neutral: ID_NEUTRAL,
-        pook: ID_POOK
-    };
-    const id = map[mode];
-    document.getElementById("id-info").innerText = id.info();
+<style>
+body { background:#000; color:#f00; font-family:monospace; text-align:center; padding:40px; }
+
+#hold {
+    width:200px;
+    height:200px;
+    margin:auto;
+    border-radius:50%;
+    background:#f00;
+    box-shadow:0 0 20px #f00;
 }
-</script>
+</style>
+</head>
+
+<body>
+
+<h1>HOLD · ID</h1>
+<div id="hold"></div>
+
+</body>
+</html>
