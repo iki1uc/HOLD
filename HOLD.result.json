@@ -1,0 +1,8 @@
+{
+  "HOLD": {
+    "input": null,
+    "freeze": false,
+    "hold": 0,
+    "state": "INIT"
+  }
+}
