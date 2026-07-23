@@ -1,35 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>HOLD · Stabilisationsstation</title>
+<title>HOLD · Stabilisationsstation · Stop/Freeze</title>
 
 <style>
 body { background:#000; color:#0f0; font-family:monospace; padding:40px; }
-h1 { color:#f00; text-align:center; }
+nav a { color:#6cf; margin-right:20px; cursor:pointer; font-size:20px; }
+.box { background:#111; padding:20px; margin:20px 0; border-left:3px solid #6cf; display:none; }
+pre { white-space:pre; }
 
 #geo {
     width:360px;
     height:360px;
     margin:auto;
     border-radius:50%;
-    border:3px solid #f00;
+    border:3px solid #0f0;
     position:relative;
 }
 
 .dot {
     width:12px;
     height:12px;
-    background:#f00;
+    background:#0f0;
     border-radius:50%;
     position:absolute;
 }
 
-pre {
-    background:#111;
-    padding:20px;
-    border-left:3px solid #f00;
-}
 </style>
 
 <script src="HOLD.core.js"></script>
@@ -41,42 +38,8 @@ pre {
 
 <body>
 
-<h1>HOLD · Stabilisationsstation</h1>
+<h1>HOLD · Stabilisationsstation · Stop/Freeze</h1>
 
-<div id="geo"></div>
-<pre id="status">Lade HOLD…</pre>
-
-<script>
-const geo = document.getElementById("geo");
-const count = 36;
-const radius = 160;
-
-for(let i=0; i<count; i++){
-    const dot = document.createElement("div");
-    dot.className = "dot";
-
-    const angle = (i / count) * Math.PI * 2;
-    const x = Math.cos(angle)*radius + 180 - 6;
-    const y = Math.sin(angle)*radius + 180 - 6;
-
-    dot.style.left = x+"px";
-    dot.style.top  = y+"px";
-
-    geo.appendChild(dot);
-}
-
-HOLD.enter(77);
-HOLD.setFreeze(true);
-
-const state = HOLD_STATE.detect(HOLD.input);
-HOLD.state = state;
-
-const result = HOLD.compute();
-const forward = HOLD_PIPE.forward(result);
-
-document.getElementById("status").innerText =
-    JSON.stringify({ HOLD: result, forward }, null, 2);
-</script>
-
-</body>
-</html>
+<nav>
+    <a onclick="show('core')">CORE</a>
+    <a onclick="show('state')">
