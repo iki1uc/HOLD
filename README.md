@@ -1,28 +1,21 @@
-# ANKER – Stabilisationsachse · iki1uc
+# HOLD · Stabilisationsstation · Stop/Freeze
 
-## Zweck
-ANKER ist die Stabilisationsachse des iki1uc‑Systems.
-Es hält die Achsen IQ, QI, EVO, UPD, UPG, BIOS und CALC im korrekten Verhältnis.
+HOLD ist die Schutz- und Stabilisationsstation des iki1uc-Systems.
+Sie friert Werte ein, stoppt Prozesse und verhindert Überschreiben.
 
-## Struktur
-- NAME: ANKER
-- ID: A01
-- Station: S01
-- Dimension: D4
-- Modus: erabel (neutral, operation möglich)
+──────────────────────────────────────────────
+## Achsen
 
-## Rolle
-ANKER stabilisiert, ohne selbst aktiv zu berechnen oder zu steuern.
-Es ist die neutrale Achse zwischen AXI, 6d und API.
+- freeze – Einfrieren
+- state – MISS / FAIL / HOLD
+- hold – stabilisierter Wert
 
-## Bindungen
-- AXI
-- 6d
-- 360
-- 100
-- 213 (REAL)
-- API
+──────────────────────────────────────────────
+## Dateien
 
-## Status
-STATE = STABIL  
-READY = 100%
+- HOLD.core.js – Hauptengine
+- HOLD.state.js – Statusachse
+- HOLD.freeze.js – Freeze-Achse
+- HOLD.pipe.js – Pipeline
+- id.html – HOLD-Stempel
+- index.html – HOLD-Geometrie
