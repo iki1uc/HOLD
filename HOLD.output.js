@@ -1,10 +1,11 @@
-export const HOLD_OUTPUT = {
+import { HOLD_STATE } from "./HOLD.state.js";
+
+export const HOLD_constellation_output = {
     dump() {
         return {
             state: HOLD_STATE.store,
-            freeze: "active",
-            pipe: "ready",
-            result: HOLD_STATE.get("HOLD_result")
+            timestamp: Date.now(),
+            constellation: "HOLD.output"
         };
     },
 
