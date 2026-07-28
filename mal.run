@@ -1,0 +1,2 @@
+HOLD_OUTPUT.log();
+const out = HOLD_OUTPUT.dump();
