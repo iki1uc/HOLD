@@ -1,2 +1,25 @@
 HOLD_OUTPUT.log();
 const out = HOLD_OUTPUT.dump();
+
+HOLD_SPLIT.state();
+HOLD_SPLIT.freeze();
+HOLD_SPLIT.pipe();
+
+[GEO-HOLD]
+ID → Freeze → State → Pipe → Result → Map → Field → Vector → Hub
+
+<script type="module">
+import { HOLD_OUTPUT } from "./HOLD.output.js";
+
+HOLD_OUTPUT.log();
+</script>
+
+## HOLD
+state  
+freeze  
+core  
+pipe  
+result  
+output  
+split  
+geo
