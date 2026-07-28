@@ -23,3 +23,13 @@ result
 output  
 split  
 geo
+
+import { HOLD_constellation_output } from "./HOLD.output.js";
+import { HOLD_constellation_split } from "./HOLD.split.js";
+
+HOLD_constellation_output.log();
+const out = HOLD_constellation_output.dump();
+
+console.log(HOLD_constellation_split.state());
+console.log(HOLD_constellation_split.freeze());
+console.log(HOLD_constellation_split.pipe());
