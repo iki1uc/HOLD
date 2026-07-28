@@ -2,44 +2,64 @@
 <html lang="de">
 <head>
 <meta charset="UTF-8">
-<title>HOLD · Stabilisationsstation · Stop/Freeze</title>
+<title>iki1uc · HOLD Constellation</title>
 
 <style>
-body { background:#000; color:#0f0; font-family:monospace; padding:40px; }
-nav a { color:#6cf; margin-right:20px; cursor:pointer; font-size:20px; }
-.box { background:#111; padding:20px; margin:20px 0; border-left:3px solid #6cf; display:none; }
-pre { white-space:pre; }
-
-#geo {
-    width:360px;
-    height:360px;
-    margin:auto;
-    border-radius:50%;
-    border:3px solid #0f0;
-    position:relative;
+body {
+  background:#000;
+  color:#0f0;
+  font-family: monospace;
+  padding:40px;
 }
-
-.dot {
-    width:12px;
-    height:12px;
-    background:#0f0;
-    border-radius:50%;
-    position:absolute;
+h1 {
+  color:#0f0;
+  font-size:32px;
 }
-
+.block {
+  margin:20px 0;
+  padding:20px;
+  border:1px solid #0f0;
+}
+pre {
+  background:#010;
+  padding:20px;
+  border:1px solid #0f0;
+}
 </style>
-
-<script src="HOLD.core.js"></script>
-<script src="HOLD.state.js"></script>
-<script src="HOLD.freeze.js"></script>
-<script src="HOLD.pipe.js"></script>
-
 </head>
 
 <body>
 
-<h1>HOLD · Stabilisationsstation · Stop/Freeze</h1>
+<h1>HOLD · Constellation</h1>
 
-<nav>
-    <a onclick="show('core')">CORE</a>
-    <a onclick="show('state')">
+<div class="block" id="output">OUTPUT</div>
+<div class="block" id="split">SPLIT</div>
+<div class="block" id="geo">GEO</div>
+
+<script type="module">
+import { HOLD_constellation_output } from "./HOLD.output.js";
+import { HOLD_constellation_split } from "./HOLD.split.js";
+import { HOLD_constellation_geo } from "./HOLD.geo.js";
+
+// OUTPUT
+const out = HOLD_constellation_output.dump();
+document.getElementById("output").innerHTML =
+  "<pre>" + JSON.stringify(out, null, 4) + "</pre>";
+
+// SPLIT
+const splitData = {
+  state: HOLD_constellation_split.state(),
+  freeze: HOLD_constellation_split.freeze(),
+  pipe: HOLD_constellation_split.pipe()
+};
+document.getElementById("split").innerHTML =
+  "<pre>" + JSON.stringify(splitData, null, 4) + "</pre>";
+
+// GEO
+const geoMap = HOLD_constellation_geo.map();
+document.getElementById("geo").innerHTML =
+  "<pre>" + JSON.stringify(geoMap, null, 4) + "</pre>;
+</script>
+
+</body>
+</html>
